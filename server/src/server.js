@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const knex = require('knex');
+const knex = require('./index');
 
 const PORT = process.env.PORT || 3000;
 
