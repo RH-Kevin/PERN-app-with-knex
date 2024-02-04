@@ -24,7 +24,7 @@ app.get('/', (req,res) => {
 app.get('/todos', async (req, res) => {
   try {
     // Use Knex to execute the SQL query
-    const todos = await knex.select('*').from('todo');
+    const todos = await knex('todo').select('*');
     
     // Send the result as JSON
     res.json(todos);
