@@ -13,7 +13,7 @@ module.exports = {
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       database: process.env.DATABASE_NAME || 'pernwithknex',
       user: process.env.POSTGRES_USER || 'kevinhaith',
@@ -34,7 +34,7 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: process.env.DATABASE_URL,
     // {
     //   database: 'my_db',
