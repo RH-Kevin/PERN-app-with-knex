@@ -10,7 +10,7 @@ const InputTodo = () => {
         e.preventDefault();
         try {
             const body = {description};
-            const response = await fetch(`${link}`, {
+            const response = await fetch(`${link}/todos`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify(body)
