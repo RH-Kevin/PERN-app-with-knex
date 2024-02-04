@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const knex = require('knex');
-import db from "./index.js"
+const db = require('./index');
 
 const PORT = process.env.PORT || 3000;
 
