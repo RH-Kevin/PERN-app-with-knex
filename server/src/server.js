@@ -35,6 +35,20 @@ app.get('/todos', async (req, res) => {
   }
 });
 
+
+app.post('/todos', async (req, res) => {
+  try {
+    const { description } = req.body;
+    const newTodo = await knex('todo').insert({description});
+    res.status(201).send('Todo added successfully');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`)
 })
