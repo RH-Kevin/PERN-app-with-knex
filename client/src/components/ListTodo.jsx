@@ -14,7 +14,7 @@ const ListTodos = () => {
     // Get Todos
     const getTodos = async () => {
         try {
-            const response = await fetch(`/todos/${link}`);
+            const response = await fetch(`${link}/todos`);
             const jsonData = await response.json();
             setTodos(jsonData);
         } catch (error) {
