@@ -1,4 +1,4 @@
-const knexConfig = require("./db/knexfile");
+const knexConfig = require("./db/knexfile"); // This needs to point to the specific knexfile
 const knex = require("knex");//(knexConfig);
 
 if (process.env.NODE_ENV === "development") {
