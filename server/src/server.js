@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const knex = require('knex');
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,6 +21,20 @@ app.use(cors());
 // API Routes
 app.get('/', (req,res) => {
   res.send("I am up and running!");
+});
+
+app.get('/todos', async (req, res) => {
+  try {
+    // Use Knex to execute the SQL query
+    const todos = await db.select('*').from('todo');
+    
+    // Send the result as JSON
+    res.json(todos);
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 app.listen(PORT, () => {
