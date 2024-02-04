@@ -56,8 +56,8 @@ const ListTodos = () => {
                     {todos.map(todo => (
                         <tr key={todo.todo_id}>
                             <td>{todo.description}</td>
-                            <td><button>Edit</button></td>
-                            <td><button>Delete</button></td>
+                            <td><button className="btn btn-warning">Edit</button></td>
+                            <td><button className="btn btn-danger">Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
