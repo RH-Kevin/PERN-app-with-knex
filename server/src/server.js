@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const knex = require('knex');
-const db = require('./index');
 
 const PORT = process.env.PORT || 3000;
 
@@ -27,7 +26,7 @@ app.get('/', (req,res) => {
 app.get('/todos', async (req, res) => {
   try {
     // Use Knex to execute the SQL query
-    const todos = await db.select('*').from('todo');
+    const todos = await knex.select('*').from('todo');
     
     // Send the result as JSON
     res.json(todos);
