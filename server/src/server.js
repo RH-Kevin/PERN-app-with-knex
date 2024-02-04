@@ -15,20 +15,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-async function testQuery() {
-  try {
-    const todos = await knex.select('*').from('todo');
-    console.log(todos);
-  } catch (error) {
-    console.error(error);
-  } finally {
-    // Close the Knex connection if needed
-    await knex.destroy();
-  }
-}
-
-testQuery();
-
 
 // API Routes
 app.get('/', (req,res) => {
