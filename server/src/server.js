@@ -50,7 +50,7 @@ app.post('/todos', async (req, res) => {
 app.delete("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteCount = await knex('todo').where({ id }).del();
+    const deleteCount = await knex('todo').where({ todo_id: id }).del();
     res.status(201).send("Resource Deleted");
   } catch (error) {
     console.error(error);
