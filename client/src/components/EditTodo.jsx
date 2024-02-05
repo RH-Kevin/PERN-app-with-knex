@@ -9,7 +9,8 @@ const EditTodo = ({todo}) => {
     const updateDescription = async(e) => {
         e.preventDefault();
         try {
-            const body = { description: description };
+            const body = { description };
+            console.log('Updating todo with:', body);
             const response = await fetch(
                 `${link}/todos/${todo.todo_id}`,
                 {
