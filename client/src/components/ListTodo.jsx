@@ -28,7 +28,16 @@ const ListTodos = () => {
 
 
     // Delete Todos
-
+    const deleteTodo = async (id) => {
+        try {
+            const deleteTodo = await fetch(`${link}/todos/${id}`, {
+                method: "DELETE"
+            });
+            setTodos(todos.filter(todo => todo.todo_id !== id));
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
 
 
 
@@ -57,7 +66,7 @@ const ListTodos = () => {
                         <tr key={todo.todo_id}>
                             <td>{todo.description}</td>
                             <td><button className="btn btn-warning">Edit</button></td>
-                            <td><button className="btn btn-danger">Delete</button></td>
+                            <td><button className="btn btn-danger" onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
                         </tr>
                     ))}
                 </tbody>

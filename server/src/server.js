@@ -47,7 +47,14 @@ app.post('/todos', async (req, res) => {
   }
 });
 
-
+app.delete("todos/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteCount = await knex('todo').where({ id }).del();
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`)
