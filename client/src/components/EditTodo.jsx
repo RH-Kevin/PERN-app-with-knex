@@ -19,7 +19,6 @@ const EditTodo = ({todo}) => {
                 }
 
             );
-            setTodos([...todos]);  // Forces a re-render of the component
             window.location = "/";
         } catch (error) {
             console.error(error.message);
