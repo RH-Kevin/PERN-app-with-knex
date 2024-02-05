@@ -9,7 +9,7 @@ const EditTodo = ({todo}) => {
     const updateDescription = async(e) => {
         e.preventDefault();
         try {
-            const body = { description };
+            const body = { description: description };
             const response = await fetch(
                 `${link}/todos/${todo.todo_id}`,
                 {
@@ -19,6 +19,7 @@ const EditTodo = ({todo}) => {
                 }
 
             );
+            setTodos([...todos]);  // Forces a re-render of the component
             window.location = "/";
         } catch (error) {
             console.error(error.message);
