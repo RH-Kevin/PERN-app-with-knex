@@ -21,6 +21,8 @@ app.get('/', (req,res) => {
   res.send("I am up and running!");
 });
 
+
+// Display all todos
 app.get('/todos', async (req, res) => {
   try {
     // Use Knex to execute the SQL query
@@ -36,6 +38,7 @@ app.get('/todos', async (req, res) => {
 });
 
 
+// Create a new todo
 app.post('/todos', async (req, res) => {
   try {
     const { description } = req.body;
@@ -47,6 +50,8 @@ app.post('/todos', async (req, res) => {
   }
 });
 
+
+// Delete a todo
 app.delete("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -56,6 +61,22 @@ app.delete("/todos/:id", async (req, res) => {
     console.error(error);
   }
 });
+
+
+// Edit a todo
+app.put("/todos/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { description } =req.body;
+    const updateTodo = await knex('todo').where({ todo_id: id }).update({ description });
+
+    res.json("Todo was edited");
+
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`)
