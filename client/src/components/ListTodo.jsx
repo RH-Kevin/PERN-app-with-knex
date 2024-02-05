@@ -44,6 +44,7 @@ const ListTodos = () => {
 
     return (
         <Fragment>
+            {console.log("todos", todos)}
             <table className="table">
                 <thead>
                     <tr>
