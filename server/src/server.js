@@ -67,9 +67,9 @@ app.delete("/todos/:id", async (req, res) => {
 app.put("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { description } =req.body;
+    const { description } = req.body;
     const updateTodo = await knex('todo').where({ todo_id: id }).update({ description });
-    res.header("Access-Control-Allow-Origin", "*");
+    //res.header("Access-Control-Allow-Origin", "*");
     res.json("Todo was edited");
 
   } catch (error) {
