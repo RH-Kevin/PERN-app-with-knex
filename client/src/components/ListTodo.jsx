@@ -2,7 +2,7 @@ import React, {Fragment, useEffect, useState} from "react";
 import EditTodo from "./EditTodo";
 
 
-const link = "https://pern-app-with-knex.onrender.com";
+const link = "https://pern-todo-backend-b72a.onrender.com";
 
 
 const ListTodos = () => {
