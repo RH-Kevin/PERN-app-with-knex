@@ -1,5 +1,5 @@
 const express = require('express');
-//const cors = require('cors');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const knex = require('./index');
 
@@ -13,7 +13,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 
 
 // API Routes
