@@ -43,6 +43,7 @@ app.post('/todos', async (req, res) => {
   try {
     const { description } = req.body;
     const newTodo = await knex('todo').insert({description});
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(201).send('Todo added successfully');
   } catch (error) {
     console.error(error);
