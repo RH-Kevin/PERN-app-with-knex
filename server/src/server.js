@@ -14,7 +14,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: "https://pern-todo-backend-b72a.onrender.com"
+  origin: "https://pern-app-with-knex-frontend.onrender.com"
 }
 ))
 app.options('*', cors())
