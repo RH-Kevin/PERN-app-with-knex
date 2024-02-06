@@ -43,7 +43,6 @@ app.post('/todos', async (req, res) => {
   try {
     const { description } = req.body;
     const newTodo = await knex('todo').insert({description});
-    res.header("Access-Control-Allow-Origin", "*");
     res.status(201).send('Todo added successfully');
   } catch (error) {
     console.error(error);
@@ -70,7 +69,7 @@ app.put("/todos/:id", async (req, res) => {
     const { id } = req.params;
     const { description } =req.body;
     const updateTodo = await knex('todo').where({ todo_id: id }).update({ description });
-
+    res.header("Access-Control-Allow-Origin", "*");
     res.json("Todo was edited");
 
   } catch (error) {
