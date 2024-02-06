@@ -13,7 +13,11 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://pern-todo-backend-b72a.onrender.com"
+}
+))
+app.options('*', cors())
 
 
 // API Routes

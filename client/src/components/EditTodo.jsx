@@ -15,9 +15,7 @@ const EditTodo = ({todo}) => {
                 `${link}/todos/${todo.todo_id}`,
                 {
                     method: "PUT",
-                    headers: { "Content-Type": "application/json",
-                                "Origin": "https://pern-app-with-knex.onrender.com"
-                            },
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(body)
                 }
 
